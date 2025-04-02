@@ -1,0 +1,33 @@
+{
+  "name": "web-starter",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node .dev",
+    "build": "rm -rf dist && npm run build:src && npm run build:server",
+    "build:src": "vite build --outDir dist/src/client && vite build --ssr src/entry-server.tsx --outDir dist/src/server",
+    "build:server": "tsc -p tsconfig.server.json && rm dist/tsconfig.server.tsbuildinfo",
+    "start": "cross-env NODE_ENV=production node dist"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.0",
+    "axios": "^1.8.4",
+    "compression": "^1.8.0",
+    "dayjs": "^1.11.13",
+    "express": "^5.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "sirv": "^3.0.1",
+    "tailwindcss": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "cross-env": "^7.0.3",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.4"
+  }
+}
